@@ -1,0 +1,24 @@
+{
+  "name": "sniffer-python",
+  "version": "1.0.0",
+  "description": "sniffer in python and interface is html, css and js",
+  "main": "main.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodalladea/sniffer-python.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodalladea/sniffer-python/issues"
+  },
+  "homepage": "https://github.com/rodalladea/sniffer-python#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "hbs": "^4.0.1"
+  }
+}
