@@ -15,7 +15,7 @@ def cleanPayload(packet):
 
 
 # Organizando para ficar no formato json
-def custom_action(packet):
+def customAction(packet):
 
     try:
         l2, l3, l4 = "---", "---", "---"
