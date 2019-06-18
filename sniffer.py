@@ -113,4 +113,4 @@ def customAction(packet):
         return "Problemas no packet, analise o problema"
     
 
-sniff(prn=custom_action)
+sniff(prn=customAction)
