@@ -4,13 +4,16 @@ let express = require('express'),
     path = require('path'),
     bodyParser = require('body-parser'),
     app = express(),
-    { PythonShell } = require('python-shell');    
+    { PythonShell } = require('python-shell'),
+    Pacotes = require('./model/Pacote');
 
 let python_process;
 
+app.use(express.static(path.join(__dirname, 'public')));
+
 app.set('views', path.join(__dirname, '/views'));
 app.set('view engine', 'hbs');
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 app.get('/inicia', (req, res) => {
     pyshell = new PythonShell('sniffer.py'); 
@@ -22,7 +25,7 @@ app.get('/inicia', (req, res) => {
     });
     python_process = pyshell.childProcess;
 
-    res.send('Inicia');
+    res.render('index');
 });
 
 app.get('/para', (req, res) => {
@@ -30,10 +33,16 @@ app.get('/para', (req, res) => {
     res.send('Para');
 });
 
+app.get('/list', (req, res) => {
+    Pacotes.find({}, 0).then(result => {
+
+        res.render('index', { test: result });
+    });
+});
+
 app.post('/', (req, res) => {
-    let packet = req.body;
-    
-    console.log(packet);
+    var pacote = new Pacotes(req.body);
+    pacote.save();
 
     res.end();
 });
