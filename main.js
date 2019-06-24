@@ -42,6 +42,7 @@ app.get('/list', (req, res) => {
 
 app.post('/', (req, res) => {
     var pacote = new Pacotes(req.body);
+    console.log(req.body);
     pacote.save();
 
     res.end();
